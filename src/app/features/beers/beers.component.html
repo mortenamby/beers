@@ -1,11 +1,11 @@
+<router-outlet></router-outlet>
 <div class="beers-root">
   <div class="beer-edit">
-    <app-beer-edit></app-beer-edit>
+    <app-beer-edit (addBeer)="onAddBeer($event)"></app-beer-edit>
   </div>
-  <div class="beers" *ngIf="beers$ | async as beers">
-    <div *ngFor="let beer of beers; trackBy: beerTrackByFn">
+  <div class="beers" *ngIf="beers$ | async as beersAsync">
+    <div *ngFor="let beer of beersAsync; trackBy: beerTrackByFn">
       <app-beer [beer]="beer"></app-beer>
     </div>
   </div>
 </div>
-

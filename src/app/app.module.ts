@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { BeersModule } from './features/beers/beers.module';
@@ -12,7 +13,7 @@ import { BeersModule } from './features/beers/beers.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    BeersModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

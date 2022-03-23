@@ -1,12 +1,12 @@
-<div class="beer" *ngIf="beer">
+<div class="beer">
   <div class="header">
     <h3>{{beer?.name}}</h3>
     <div class="toolbar">
-      <button>Details</button>
+      <button [routerLink]="['/beers', beer?.id]">Details</button>
       <button>Edit</button>
     </div>
   </div>
   <div class="description">
-    <img width="50" src="{{beer.image_url}}">
+    <img width="50" src="{{beer?.image_url}}">
   </div>
 </div>

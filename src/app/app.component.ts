@@ -8,5 +8,4 @@ import { ApiService } from './core/api/api.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'users';
 }

@@ -1,7 +1,9 @@
 .beers-root {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   .beer-edit {
-    flex: 1
+    min-width: 300px;
   }
   .beers {
     flex: 3;

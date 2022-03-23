@@ -1,1 +1,11 @@
-<p>beer-edit works!</p>
+<div>
+  <h3>Add New Beer</h3>
+  <form [formGroup]="beerForm">
+    <input formControlName="name" placeholder="Beer Name" />
+    <input formControlName="contributed_by" placeholder="Contibutor Name"/>
+    <input formControlName="ibu" placeholder="IBU"/>
+    <input formControlName="ebc" placeholder="EBC"/>
+    <textarea formControlName="description" placeholder="Description"></textarea>
+    <button (click)="onSubmitBeer()">Submit</button>
+  </form>
+</div>

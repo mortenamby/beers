@@ -9,7 +9,9 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private createBeer() {}
+  public createBeer(beer: BeerDTO) {
+    return this.httpClient.post<BeerDTO>('https://reqres.in/api/users', beer);
+  }
   public getBeers() {
     // return this.httpClient.get('https://reqres.in/api/animals/')
     return this.httpClient.get<BeerDTO[]>('https://api.punkapi.com/v2/beers')

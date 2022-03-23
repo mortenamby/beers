@@ -10,9 +10,6 @@ export class BeerDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  public onBeerClick() {
-    // Go to beer details route
+    console.log('init')
   }
 }
