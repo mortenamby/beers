@@ -1,0 +1,16 @@
+.beers-root {
+  display: flex;
+  .beer-edit {
+    flex: 1
+  }
+  .beers {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    > div {
+      flex: 1 0 300px;
+      max-width: 300px;
+    }
+  }
+}

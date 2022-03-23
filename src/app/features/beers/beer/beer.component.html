@@ -1,0 +1,12 @@
+<div class="beer" *ngIf="beer">
+  <div class="header">
+    <h3>{{beer?.name}}</h3>
+    <div class="toolbar">
+      <button>Details</button>
+      <button>Edit</button>
+    </div>
+  </div>
+  <div class="description">
+    <img width="50" src="{{beer.image_url}}">
+  </div>
+</div>

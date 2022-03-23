@@ -1,0 +1,11 @@
+<div class="beers-root">
+  <div class="beer-edit">
+    <app-beer-edit></app-beer-edit>
+  </div>
+  <div class="beers" *ngIf="beers$ | async as beers">
+    <div *ngFor="let beer of beers; trackBy: beerTrackByFn">
+      <app-beer [beer]="beer"></app-beer>
+    </div>
+  </div>
+</div>
+
