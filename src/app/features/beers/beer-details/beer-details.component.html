@@ -1,1 +1,34 @@
-<p>beer-details works!</p>
+<div class="beer-root" *ngIf="beer$ | async as beer">
+  <div class="info">
+    <button class="back-btn" [routerLink]="'/beers'">Back</button>
+    <h3>{{beer.name}}</h3>
+    <div>{{beer.description}}</div>
+    <div class="lines">
+      <div class="info-line">
+        <label>Made by</label>
+        <div>{{beer.contributed_by}}</div>
+      </div>
+      <div class="info-line">
+        <label>IBU</label>
+        <div>{{beer.ibu}}</div>
+      </div>
+      <div class="info-line">
+        <label>EBC</label>
+        <div>{{beer.ebc}}</div>
+      </div>
+    </div>
+    <details *ngIf="beer.ingredients">
+      <summary>Ingredients</summary>
+      <div>Yeast: {{beer.ingredients.yeast}}</div>
+      <div>Hops</div>
+      <ul>
+        <li *ngFor="let hop of beer.ingredients.hops">{{hop.name}}</li>
+      </ul>
+      <div>Malt</div>
+      <ul>
+        <li *ngFor="let malt of beer.ingredients.malt">{{malt.name}}</li>
+      </ul>
+    </details>
+  </div>
+  <img [src]="beer.image_url">
+</div>

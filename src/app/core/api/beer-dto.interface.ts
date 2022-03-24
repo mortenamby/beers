@@ -63,7 +63,7 @@
   }
 
   export interface BeerDTO {
-      id: number;
+      id: number | undefined;
       name: string;
       tagline: string;
       first_brewed: string;

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BeerDTO } from 'src/app/core/api/beer-dto.interface';
 
 @Component({
@@ -8,6 +8,8 @@ import { BeerDTO } from 'src/app/core/api/beer-dto.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BeerComponent implements OnInit {
+  @Output() beerDelete = new EventEmitter<BeerDTO>();
+  @Output() beerEdit = new EventEmitter<BeerDTO>();
   @Input() beer: BeerDTO | undefined;
 
   constructor() { }
@@ -15,4 +17,11 @@ export class BeerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public onDelete() {
+    this.beerDelete.emit(this.beer);
+  }
+
+  public onEdit() {
+    this.beerEdit.emit(this.beer);
+  }
 }

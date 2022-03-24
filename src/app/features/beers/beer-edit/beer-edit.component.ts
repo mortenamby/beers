@@ -12,8 +12,10 @@ import { BeerDTO } from 'src/app/core/api/beer-dto.interface';
 export class BeerEditComponent implements OnChanges {
   @Input() beer: BeerDTO | undefined;
   @Output() addBeer = new EventEmitter<BeerDTO>();
+  @Output() updateBeer = new EventEmitter<BeerDTO>();
 
   public beerForm = new FormGroup({
+    id: new FormControl(),
     name: new FormControl('Test Beer', { validators: [Validators.required]}),
     description: new FormControl('This is a test', { validators: [Validators.required]}),
     contributed_by: new FormControl('Morten', { validators: [Validators.required]}),
@@ -32,6 +34,7 @@ export class BeerEditComponent implements OnChanges {
     if (this.beerForm.invalid) {
       return;
     }
-    this.addBeer.emit(this.beerForm.value);
+    const beer = this.beerForm.value;
+    beer.id ? this.updateBeer.emit(beer) : this.addBeer.emit(beer);
   }
 }

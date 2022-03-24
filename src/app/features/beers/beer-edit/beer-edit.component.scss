@@ -1,10 +1,16 @@
-form {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  textarea {
-    min-height: 200px;
+.beer-edit-root {
+  position: sticky;
+  top: 1.7em;
+  background-color: white;
+  form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  
+    textarea {
+      min-height: 200px;
+      resize: vertical;
+    }
   }
 }

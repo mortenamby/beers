@@ -3,24 +3,26 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap, take, withLatestFrom } from 'rxjs/operators';
 import { ApiService } from 'src/app/core/api/api.service';
 import { BeerDTO } from 'src/app/core/api/beer-dto.interface';
+import { BeerService } from './beer.service';
 
 @Component({
   selector: 'app-beers',
   templateUrl: './beers.component.html',
   styleUrls: ['./beers.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BeersComponent implements OnInit {
 
-  public readonly beers$: Observable<BeerDTO[]>;
-  private readonly beersState = new BehaviorSubject<BeerDTO[]>([]);
+  public selectedBeerForEdit: BeerDTO = this.emptyBeer;
 
-  constructor(private apiService: ApiService, private cd: ChangeDetectorRef) {
-    this.beers$ = this.beersState.asObservable();
+  public readonly beers$ = this.beerService.beers$
+
+  constructor(private apiService: ApiService, private beerService: BeerService) {
   }
 
   public ngOnInit(): void {
     this.getBeers().subscribe(beers => {
-      this.beersState.next(beers);
+      this.beerService.setBeers(beers);
     });
   }
 
@@ -28,16 +30,40 @@ export class BeersComponent implements OnInit {
     return this.apiService.getBeers()
   }
 
+  public onEditBeer(beer: BeerDTO) {
+    this.selectedBeerForEdit = beer;
+  }
+
   public onAddBeer(beer: BeerDTO) {
-    this.apiService.createBeer(beer).pipe(withLatestFrom(this.beers$)).subscribe(([beerDto, beers]) => {
-      const randomBeerIndex = Math.floor(Math.random() * beers.length);
-      const randomBeer = beers[randomBeerIndex];
-      this.beersState.next([{...beerDto, image_url: randomBeer.image_url}, ...beers]);
+    this.apiService.createBeer(beer).subscribe(beerDto => {
+      this.beerService.addBeer(beerDto);
     });
   }
 
-  beerTrackByFn(index: number, beer: BeerDTO) {
-    return beer.id;
+  public onUpdateBeer(beer: BeerDTO) {
+    this.apiService.updateBeer(beer).subscribe(beerDto => {
+      this.beerService.updateBeer(beerDto);
+      this.selectedBeerForEdit = this.emptyBeer;
+    });
   }
 
+  public onDeleteBeer(beer: BeerDTO) {
+    this.apiService.deleteBeer(beer).subscribe(() => {
+      this.beerService.deleteBeer(beer)
+    });
+  }
+
+  public beerTrackByFn(index: number, beer: BeerDTO) {
+    return beer.id + beer.name;
+  }
+
+  private get emptyBeer() {
+    return {
+      name: '',
+      contributed_by: '',
+      ebc: 0,
+      ibu: 0,
+      description: ''
+    } as BeerDTO
+  }
 }

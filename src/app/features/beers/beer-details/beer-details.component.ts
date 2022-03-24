@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { BeerDTO } from 'src/app/core/api/beer-dto.interface';
+import { BeerService } from '../beer.service';
 
 @Component({
   selector: 'app-beer-details',
@@ -7,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BeerDetailsComponent implements OnInit {
 
-  constructor() { }
+  public beer$ = this.beerService.getBeerById(this.route.snapshot.paramMap.get('id'))
+
+  constructor(private route: ActivatedRoute, private beerService: BeerService) { }
 
   ngOnInit(): void {
-    console.log('init')
+    console.log(this.route.snapshot.paramMap.get('id'));
   }
 }
