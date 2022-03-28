@@ -12,6 +12,8 @@ const routes: Routes = [
     path: ':id',
     component: BeerDetailsComponent,
   },
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
