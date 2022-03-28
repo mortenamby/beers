@@ -5,6 +5,8 @@ It features an overview of BrewDog beers which are fetched from the public Punk 
 
 You can add, edit and delete beers using the app, however the data is not persisted as the Punk API only allows GET operations.
 
+The demo page can be viewed at: http://mda.pizza/beers
+
 ## Prerequisites
 
 To run the app in development mode, NodeJS LTS version or newer is required.
@@ -17,10 +19,10 @@ The provided Dockerfile will create a container with the application deployed an
 
 To create the container run:
 
-`docker build -t mortendamby/beers .`
+`docker build -t punk-beers .`
 
 To run and serve the application run:
 
-`docker run -d -p 4201:80 --name beers mortendamby/beers`
+`docker run -d -p 4201:80 --name beers punk-beers`
 
 The application is then available on http://localhost:4201
