@@ -1,8 +1,8 @@
 <div class="beer-root" *ngIf="beer$ | async as beer">
   <div class="info">
     <button class="back-btn" [routerLink]="'/beers'">Back</button>
-    <h3>{{beer.name}}</h3>
-    <div>{{beer.description}}</div>
+    <h3 class="beer-name">{{beer.name}}</h3>
+    <div class="beer-description">{{beer.description}}</div>
     <div class="lines">
       <div class="info-line">
         <label>Made by</label>
