@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { BeerEditComponent } from './beer-edit.component';
 
@@ -8,7 +9,8 @@ describe('BeerEditComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BeerEditComponent ]
+      declarations: [ BeerEditComponent ],
+      imports: [ReactiveFormsModule]
     })
     .compileComponents();
   });

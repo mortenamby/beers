@@ -13,7 +13,6 @@ export class ApiService {
     return this.httpClient.post<BeerDTO>('https://reqres.in/api/beers', beer);
   }
   public getBeers() {
-    // return this.httpClient.get('https://reqres.in/api/animals/')
     return this.httpClient.get<BeerDTO[]>('https://api.punkapi.com/v2/beers')
   }
   public updateBeer(beer: BeerDTO) {

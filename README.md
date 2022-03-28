@@ -21,6 +21,6 @@ To create the container run:
 
 To run and serve the application run:
 
-`docker run -p 4201:80 mortendamby/beers`
+`docker run -d -p 4201:80 --name beers mortendamby/beers`
 
 The application is then available on http://localhost:4201

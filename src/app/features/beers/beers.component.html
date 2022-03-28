@@ -1,11 +1,1 @@
 <router-outlet></router-outlet>
-<div class="beers-root">
-  <div class="beer-edit">
-    <app-beer-edit (addBeer)="onAddBeer($event)" (updateBeer)="onUpdateBeer($event)" [beer]="selectedBeerForEdit"></app-beer-edit>
-  </div>
-  <div class="beers" *ngIf="beers$ | async as beersAsync">
-    <div *ngFor="let beer of beersAsync; trackBy: beerTrackByFn">
-      <app-beer [beer]="beer" (beerDelete)="onDeleteBeer($event)" (beerEdit)="onEditBeer($event)"></app-beer>
-    </div>
-  </div>
-</div>

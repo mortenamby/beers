@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { BeerDTO } from 'src/app/core/api/beer-dto.interface';
 import { BeerService } from '../beer.service';
 
 @Component({
   selector: 'app-beer-details',
   templateUrl: './beer-details.component.html',
-  styleUrls: ['./beer-details.component.scss']
+  styleUrls: ['./beer-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BeerDetailsComponent implements OnInit {
 
@@ -16,6 +15,5 @@ export class BeerDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private beerService: BeerService) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap.get('id'));
   }
 }

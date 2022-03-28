@@ -1,6 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { switchMap, take, withLatestFrom } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/api/api.service';
 import { BeerDTO } from 'src/app/core/api/beer-dto.interface';
 import { BeerService } from './beer.service';

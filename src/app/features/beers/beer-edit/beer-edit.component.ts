@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from 'src/app/core/api/api.service';
 import { BeerDTO } from 'src/app/core/api/beer-dto.interface';
 
 @Component({
@@ -22,7 +21,7 @@ export class BeerEditComponent implements OnChanges {
     ibu: new FormControl(12),
     ebc: new FormControl(21)
   })
-  constructor(private apiService: ApiService) { }
+  constructor() { }
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes['beer'] && changes['beer'].currentValue) {

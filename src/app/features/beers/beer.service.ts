@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject, take, map, filter } from 'rxjs';
-import { ApiService } from 'src/app/core/api/api.service';
+import { Observable, BehaviorSubject, take, map } from 'rxjs';
 import { BeerDTO } from 'src/app/core/api/beer-dto.interface';
 
 @Injectable({
