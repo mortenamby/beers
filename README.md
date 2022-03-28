@@ -10,6 +10,7 @@ The demo page can be viewed at: http://mda.pizza/beers
 ## Prerequisites
 
 To run the app in development mode, NodeJS LTS version or newer is required.
+## Development
 
 Run the command `npm start` to start the server which will reload on file changes in the app.
 
