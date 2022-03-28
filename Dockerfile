@@ -1,19 +1,13 @@
-FROM node:14.18.3-alpine3.15 As build
+FROM node:14.18.3-alpine3.15
 
 # set a directory for the app
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # copy all the files to the container
 COPY . .
 
+EXPOSE 4201
 # install dependencies
 RUN npm install
 
-# Build Angular application in PROD mode
-RUN npm run build
-
-#Download NGINX Image
-FROM nginx:1.21.6-alpine
-
-#Copy built angular files to NGINX HTML folder
-COPY --from=build /usr/src/app/dist/beers/ /usr/share/nginx/html
+CMD ["npm", "start"]
