@@ -1,7 +1,7 @@
 # Project Description
 This is a demo project of an Angular application.
 
-It features an overview of BrewDog beers which are fetched from the Punk API (https://api.punkapi.com/v2/)
+It features an overview of BrewDog beers which are fetched from the public Punk API (https://api.punkapi.com/v2/)
 
 You can add, edit and delete beers using the app, however the data is not persisted as the Punk API only allows GET operations.
 
