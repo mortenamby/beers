@@ -1,0 +1,10 @@
+.card-list {
+  flex: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  app-card {
+    flex: 1 0 300px;
+    max-width: 300px;
+  }
+}

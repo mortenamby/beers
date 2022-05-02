@@ -13,7 +13,7 @@ import { BeersModule } from './features/beers/beers.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

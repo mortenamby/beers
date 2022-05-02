@@ -1,0 +1,5 @@
+<div class="card-list">
+  <app-card *ngFor="let d of data">
+    <ng-container [ngTemplateOutlet]="cardTemplate" [ngTemplateOutletContext]="{ $implicit: d }"></ng-container>
+  </app-card>
+</div>

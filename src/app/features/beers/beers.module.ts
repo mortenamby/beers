@@ -6,6 +6,8 @@ import { BeerComponent } from './beer/beer.component';
 import { BeerEditComponent } from './beer-edit/beer-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BeersRoutingModule } from './beers-routing.module';
+import { CardModule } from '../card/card.module';
+import { CardListModule } from '../card-list/card-list.module';
 
 
 
@@ -22,7 +24,9 @@ import { BeersRoutingModule } from './beers-routing.module';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    BeersRoutingModule
+    BeersRoutingModule,
+    CardModule,
+    CardListModule
   ]
 })
 export class BeersModule { }
